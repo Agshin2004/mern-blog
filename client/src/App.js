@@ -8,6 +8,7 @@ import RegisterPage from './pages/RegisterPage';
 import CreatePostPage from './pages/CreatePostPage';
 import PostPage from './pages/PostPage';
 import EditPostPage from './pages/EditPostPage';
+import NotFoundPage from './pages/NotFoundPage';
 
 function App() {
     return (
@@ -19,6 +20,7 @@ function App() {
                 <Route path={'/create-post'} element={<CreatePostPage />} />
                 <Route path={'/post/:id'} element={<PostPage />} />
                 <Route path={'/post/edit/:id'} element={<EditPostPage />} />
+                <Route path='*' element={<NotFoundPage />}/>
             </Route>
         </Routes>
     );

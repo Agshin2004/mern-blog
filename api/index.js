@@ -145,17 +145,26 @@ app.get('/post/:id', async (req, res) => {
     const { id: postId } = req.params;
 
     try {
+        if (!mongoose.Types.ObjectId.isValid(postId)) {
+            // Checking if id is valid mongo object
+            return res.status(400).json({ status: 'fail', message: 'invalid ID' });
+        }
+
         //  Same as .find({ _id: postId })
         const post = await Post.findById(postId).populate({
             path: 'author',
             select: '-password',
         });
 
+        if (!post) {
+            return res.status(404).json({ status: 'fail', message: 'Post not found' });
+        }
+
         res.json({
             post,
         });
     } catch (err) {
-        res.json(err);
+        res.json('error');
     }
 });
 
