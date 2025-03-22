@@ -1,0 +1,5 @@
+.prettierrc
+api/node_modules
+client/node_modules
+api/public/uploads
+client/public
