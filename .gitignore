@@ -3,3 +3,4 @@ api/node_modules
 client/node_modules
 api/public/uploads
 client/public
+api/.env

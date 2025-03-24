@@ -30,9 +30,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname + '\\public'))); // Serving static files
 const uploadMiddleware = multer({ dest: 'public/uploads' });
 
-mongoose.connect(
-    'mongodb+srv://lenaklenke31:mFEyvAzwty6lAtNL@cluster0.61zkc.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
-);
+mongoose.connect(process.env.DB_CONNECTION_STR);
 
 const secretKey = 'mySecretKey';
 
